@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Mail;
 
-// BUILDER: validates and assembles a complete student profile step by step.
+// BUILDER
 public class StudentBuilder
 {
     private int _id;
@@ -36,7 +36,7 @@ public class StudentBuilder
         if (!MailAddress.TryCreate(_email, out var address) || address.Address != _email)
             throw new ArgumentException("A valid email is required.");
         var student = new Student(_id, _name.Trim(), _faculty.Trim(), _group.Trim(), _studyYear, _email.Trim());
-        foreach (int grade in _grades) student.AddGrade(grade); // new students start Active
+        foreach (int grade in _grades) student.AddGrade(grade);
         return student;
     }
 }

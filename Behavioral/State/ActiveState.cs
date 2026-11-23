@@ -1,4 +1,4 @@
-// Active: can receive grades, can be suspended, can graduate with a passing average.
+// STATE: Concrete State
 public class ActiveState : EnrollmentStateBase
 {
     public override string Name => "Active";

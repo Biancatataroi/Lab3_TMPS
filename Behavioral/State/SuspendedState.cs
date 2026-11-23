@@ -1,4 +1,4 @@
-// Suspended: grades and graduation are blocked; the only way out is Reinstate.
+// STATE: Concrete State
 public class SuspendedState : EnrollmentStateBase
 {
     public override string Name => "Suspended";

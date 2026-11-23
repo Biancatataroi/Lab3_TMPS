@@ -1,5 +1,4 @@
-// PROXY: implements the same interface as the real report.
-// It checks access before forwarding the request to the wrapped report.
+// PROXY
 public class ReportProxy : IAcademicReport
 {
     private readonly IAcademicReport _realReport;

@@ -31,9 +31,9 @@ public static class StatePatternTests
         Check("State: same action behaves differently per state (AddGrade)", () =>
         {
             var student = MakeStudent(7);
-            student.AddGrade(10);                       // Active accepts
+            student.AddGrade(10);
             student.Suspend();
-            AssertThrows<InvalidStateTransitionException>(() => student.AddGrade(5)); // Suspended rejects
+            AssertThrows<InvalidStateTransitionException>(() => student.AddGrade(5));
             Assert(student.Grades.Count == 2, "rejected grade must not be stored");
         });
 

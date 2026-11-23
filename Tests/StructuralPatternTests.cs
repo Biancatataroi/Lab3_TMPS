@@ -1,6 +1,5 @@
 using static TestRunner;
 
-// Lab 2 tests, kept so the structural patterns are still verified.
 public static class StructuralPatternTests
 {
     public static void Run()

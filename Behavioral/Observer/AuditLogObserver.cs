@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-// Keeps a timestamped history of every change, viewable from the menu.
+// OBSERVER: Concrete Observer
 public class AuditLogObserver : IStudentObserver
 {
     private readonly List<string> _entries = new();

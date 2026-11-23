@@ -1,13 +1,9 @@
 using System;
 
-// Scripted walkthrough: dotnet run -- --demo
-// One execution path that crosses all three behavioral patterns:
-// Command (history) -> State (Student delegates to its state) -> Observer (notifications).
 public static class DemoScenario
 {
     public static void Run()
     {
-        // Lab 2 Builder creates the objects the behavioral patterns work with.
         Student maria = new StudentBuilder().SetId(1).SetName("Maria Ciobanu")
             .SetFaculty("FCIM").SetGroup("FAF-242").SetStudyYear(3)
             .SetEmail("maria@example.com").AddGrade(4).Build();
@@ -23,7 +19,7 @@ public static class DemoScenario
 
         Section("1. COMMAND + OBSERVER: add grades through the command history");
         Run(history, new AddGradeCommand(maria, 9));
-        Run(history, new AddGradeCommand(maria, 1));   // pulls the average down -> risk alert
+        Run(history, new AddGradeCommand(maria, 1));
         Status(maria);
 
         Section("2. COMMAND: undo the bad grade");
@@ -32,8 +28,8 @@ public static class DemoScenario
 
         Section("3. STATE: suspend, then try actions the Suspended state forbids");
         Run(history, new SuspendStudentCommand(maria));
-        Run(history, new AddGradeCommand(maria, 10));    // rejected by SuspendedState
-        Run(history, new GraduateStudentCommand(maria)); // rejected by SuspendedState
+        Run(history, new AddGradeCommand(maria, 10));
+        Run(history, new GraduateStudentCommand(maria));
         Status(maria);
 
         Section("4. COMMAND + STATE: undo the suspension restores the Active state");
@@ -44,7 +40,7 @@ public static class DemoScenario
         maria.Unsubscribe(console);
         Run(history, new GraduateStudentCommand(maria));
         Console.WriteLine("(no [Notification] line above: the console notifier is unsubscribed)");
-        Run(history, new SuspendStudentCommand(maria));  // Graduated is final
+        Run(history, new SuspendStudentCommand(maria));
         Status(maria);
 
         Section("6. Lab 2 Facade still works with the student");

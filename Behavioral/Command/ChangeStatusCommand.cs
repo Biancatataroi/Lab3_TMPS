@@ -1,5 +1,4 @@
-// Base for commands that move a student between enrollment states.
-// It remembers the previous state object so Undo can put it back.
+// COMMAND: Concrete Commands
 public abstract class ChangeStatusCommand : IStudentCommand
 {
     protected readonly Student Student;
@@ -12,7 +11,7 @@ public abstract class ChangeStatusCommand : IStudentCommand
     public void Execute()
     {
         IEnrollmentState before = Student.State;
-        Apply();                        // the current state accepts or rejects the transition
+        Apply();
         _previousState = before;
     }
 

@@ -1,7 +1,6 @@
 using System;
 
-// STATE: the interface every enrollment state implements.
-// The Student (context) calls these methods; the state decides what happens.
+// STATE: State interface
 public interface IEnrollmentState
 {
     string Name { get; }
@@ -12,14 +11,11 @@ public interface IEnrollmentState
     void Graduate(Student student);
 }
 
-// Thrown when the current state does not allow an action.
 public class InvalidStateTransitionException : InvalidOperationException
 {
     public InvalidStateTransitionException(string message) : base(message) { }
 }
 
-// Default behaviour: every action is forbidden.
-// A concrete state overrides only the actions it allows.
 public abstract class EnrollmentStateBase : IEnrollmentState
 {
     public abstract string Name { get; }

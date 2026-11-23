@@ -241,9 +241,9 @@ classDiagram
 // Invoker
 public void Execute(IStudentCommand command)
 {
-    command.Execute();      // if this throws, nothing is recorded
+    command.Execute();
     _undo.Push(command);
-    _redo.Clear();          // a new action makes the old redo branch invalid
+    _redo.Clear();
 }
 
 public string? Undo()
@@ -259,7 +259,7 @@ public string? Undo()
 public void Execute()
 {
     IEnrollmentState before = Student.State;
-    Apply();                        // the current state accepts or rejects the transition
+    Apply();
     _previousState = before;
 }
 public void Undo()
@@ -360,12 +360,10 @@ public void Unsubscribe(IStudentObserver observer) => _observers.Remove(observer
 
 private void Notify(StudentEvent studentEvent)
 {
-    // Iterate over a copy so an observer may unsubscribe while being notified.
     foreach (IStudentObserver observer in _observers.ToList())
         observer.Update(studentEvent);
 }
 
-// Called by a state object to move the student to the next state.
 internal void TransitionTo(IEnrollmentState next)
 {
     string previous = State.Name;

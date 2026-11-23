@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-// OCP/DIP : calculators can be extended via this abstraction.
 public interface IGradeCalculator
 {
     double Calculate(IReadOnlyList<int> grades);
@@ -20,7 +19,6 @@ public class HighestCalculator : IGradeCalculator
 
 public class GradeManager
 {
-    // Demonstration rule used by reports, graduation and the dean's office alert.
     public const double PassingAverage = 5.0;
 
     private readonly IGradeCalculator _calculator;

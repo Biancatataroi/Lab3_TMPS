@@ -1,7 +1,5 @@
 using System;
 
-// Minimal self-contained test runner (no NuGet packages needed).
-// Run all tests with: dotnet run -- --test   (exit code 1 if any test fails)
 public static class TestRunner
 {
     private static int _passed;
@@ -50,7 +48,6 @@ public static class TestRunner
     }
 }
 
-// Test double: records every notification it receives.
 public class RecordingObserver : IStudentObserver
 {
     public System.Collections.Generic.List<StudentEvent> Received { get; } = new();

@@ -1,4 +1,4 @@
-// DECORATOR: adds optional text to a report without editing existing reports.
+// DECORATOR
 public abstract class ReportDecorator : IAcademicReport
 {
     protected readonly IAcademicReport InnerReport;

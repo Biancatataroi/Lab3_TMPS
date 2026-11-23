@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 
-// Client-side helper: lets the user switch observers on and off at runtime.
-// An enabled observer is subscribed to every student, including students added later.
 public class NotificationSettings
 {
     private readonly StudentRegistry _registry;
@@ -26,7 +24,6 @@ public class NotificationSettings
         else Enable(name);
     }
 
-    // Called when a new student joins the registry.
     public void AttachEnabledObservers(IStudentSubject student)
     {
         foreach (string name in _enabled) student.Subscribe(_available[name]);

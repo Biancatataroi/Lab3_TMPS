@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-// Reacts only to grade changes: warns the dean's office when the average
-// falls below the passing threshold. It only reads the student, never changes it,
-// so it cannot trigger an endless notification loop.
+// OBSERVER: Concrete Observer
 public class AcademicRiskAlert : IStudentObserver
 {
     private readonly TextWriter _output;

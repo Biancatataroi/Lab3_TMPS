@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-// SINGLETON: one shared student registry within the running application.
+// SINGLETON
 public sealed class StudentRegistry
 {
     private static readonly Lazy<StudentRegistry> _instance = new(() => new StudentRegistry());

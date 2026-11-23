@@ -1,6 +1,6 @@
 using System.IO;
 
-// Prints every change. The output is injected so tests can capture it.
+// OBSERVER: Concrete Observer
 public class ConsoleNotifier : IStudentObserver
 {
     private readonly TextWriter _output;

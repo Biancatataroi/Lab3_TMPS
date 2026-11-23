@@ -35,9 +35,9 @@ public static class ObserverPatternTests
             var student = MakeStudent(6);
             var alert = new AcademicRiskAlert(TextWriter.Null);
             student.Subscribe(alert);
-            student.AddGrade(5);   // average 5.5 -> no alert
+            student.AddGrade(5);
             Assert(alert.Alerts.Count == 0);
-            student.AddGrade(1);   // average 4.0 -> alert
+            student.AddGrade(1);
             Assert(alert.Alerts.Count == 1);
         });
 

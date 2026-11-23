@@ -1,8 +1,6 @@
 using System;
 using static ConsoleInput;
 
-// Interactive client. Every change to grades or status goes through
-// CommandHistory (Command) -> Student (State context) -> observers (Observer).
 public class ConsoleMenu
 {
     private readonly StudentRegistry _registry;
@@ -209,7 +207,7 @@ public class ConsoleMenu
             2 => new ReinstateStudentCommand(student),
             _ => new GraduateStudentCommand(student)
         };
-        _history.Execute(command);   // the current state accepts or rejects it
+        _history.Execute(command);
     }
 
     private void Undo()

@@ -1,11 +1,10 @@
-// OBSERVER: anything that wants to react when a student changes.
+// OBSERVER: Observer interface
 public interface IStudentObserver
 {
     void Update(StudentEvent studentEvent);
 }
 
-// SUBJECT: observers can subscribe and unsubscribe at runtime.
-// Student implements it; it depends only on IStudentObserver, never on concrete observers.
+// OBSERVER: Subject interface
 public interface IStudentSubject
 {
     void Subscribe(IStudentObserver observer);

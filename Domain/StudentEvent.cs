@@ -1,4 +1,3 @@
-// Data sent by the subject (Student) to its observers.
 public enum StudentEventKind
 {
     GradeAdded,

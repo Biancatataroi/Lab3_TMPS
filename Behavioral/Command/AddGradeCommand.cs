@@ -1,5 +1,4 @@
-// Concrete command. The receiver (Student) and its state hold the business rules;
-// the command only remembers what is needed to undo the action.
+// COMMAND: Concrete Command
 public class AddGradeCommand : IStudentCommand
 {
     private readonly Student _student;
@@ -17,13 +16,13 @@ public class AddGradeCommand : IStudentCommand
     public void Execute()
     {
         int position = _student.Grades.Count;
-        _student.AddGrade(_grade);      // may throw if the state forbids it
-        _position = position;           // remembered only after success
+        _student.AddGrade(_grade);
+        _position = position;
     }
 
     public void Undo()
     {
-        if (_position < 0) return;      // never executed successfully
+        if (_position < 0) return;
         _student.RemoveGradeAt(_position);
         _position = -1;
     }
