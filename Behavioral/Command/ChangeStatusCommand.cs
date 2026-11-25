@@ -24,24 +24,3 @@ public abstract class ChangeStatusCommand : IStudentCommand
 
     protected abstract void Apply();
 }
-
-public class SuspendStudentCommand : ChangeStatusCommand
-{
-    public SuspendStudentCommand(Student student) : base(student) { }
-    public override string Description => $"Suspend {Student.Name}";
-    protected override void Apply() => Student.Suspend();
-}
-
-public class ReinstateStudentCommand : ChangeStatusCommand
-{
-    public ReinstateStudentCommand(Student student) : base(student) { }
-    public override string Description => $"Reinstate {Student.Name}";
-    protected override void Apply() => Student.Reinstate();
-}
-
-public class GraduateStudentCommand : ChangeStatusCommand
-{
-    public GraduateStudentCommand(Student student) : base(student) { }
-    public override string Description => $"Graduate {Student.Name}";
-    protected override void Apply() => Student.Graduate();
-}
